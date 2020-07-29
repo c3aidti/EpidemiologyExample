@@ -10,4 +10,16 @@ Once the notebook is started, you can run the notebook cells which implement the
 
 ## C3 Implementation
 
-Coming Soon...
+The C3 implementation of this example is in the directory `c3-python-connector`. Make sure you have access to a C3 tag which has the Datalake package provisioned either directly, or as a dependency of your current package. To ensure your python environment has everything needed, we recommend provisioning a conda environment with
+
+```
+conda env create -f ./env.yaml -p ./venv
+```
+
+After which you can launch jupyter notebook, and open the notebook `casesExample.ipynb`.
+
+When running the jupyter notebook, there's a cell at the top meant to connect to a running C3 tag. If you're running python/jupyter 'remotely' that is not through C3's system, you will need to replace the `<vanity_url>`, `<tenant>`, and `<tag>` in the cell negotiating the connection to C3. It should look like this:
+
+```
+c3 = get_c3('<vanity_url>', '<tenant>', '<tag>')
+```
